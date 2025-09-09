@@ -1,4 +1,3 @@
-
 # Copyright 2025 Open Source Robotics Foundation, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,34 +14,23 @@
 
 # Imports
 
-load("@ros//:defs.bzl", "ros_interface", "ros_package")
+load("@ros//:defs.bzl", "ros_interface")
 
 package(default_visibility = ["//visibility:public"])
 
 # Interfaces
 
 ros_interface(
-    name = "srv__Empty",
-    src = "srv/Empty.srv",
+    name = "Empty",
+    src = "Empty.srv",
 )
 
 ros_interface(
-    name = "srv__SetBool",
-    src = "srv/SetBool.srv",
+    name = "SetBool",
+    src = "SetBool.srv",
 )
 
 ros_interface(
-    name = "srv__Trigger",
-    src = "srv/Trigger.srv",
-)
-
-# Package
-
-ros_package(
-    name = "std_srvs",
-    interfaces = [
-        ":srv__Empty",
-        ":srv__SetBool",
-        ":srv__Trigger",
-    ],
+    name = "Trigger",
+    src = "Trigger.srv",
 )
