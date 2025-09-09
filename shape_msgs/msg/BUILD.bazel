@@ -12,18 +12,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Imports
-
 load("@ros//:defs.bzl", "ros_interface")
 
 package(default_visibility = ["//visibility:public"])
 
 ros_interface(
-    name = "SetCameraInfo",
-    src = "SetCameraInfo.srv",
+    name = "Mesh",
+    src = "Mesh.msg",
     deps = [
-        "//msg:CameraInfo",
-        # Services have implicit deps
-        "@service_msgs//msg:ServiceEventInfo",
+        "@geometry_msgs//msg:Point",
+        ":MeshTriangle",
+    ],
+)
+
+ros_interface(
+    name = "MeshTriangle",
+    src = "MeshTriangle.msg",
+)
+
+ros_interface(
+    name = "Plane",
+    src = "Plane.msg",
+)
+
+ros_interface(
+    name = "SolidPrimitive",
+    src = "SolidPrimitive.msg",
+    deps = [
+        "@geometry_msgs//msg:Polygon",
     ],
 )

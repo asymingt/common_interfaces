@@ -1,3 +1,4 @@
+
 # Copyright 2025 Open Source Robotics Foundation, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,18 +13,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Imports
-
-load("@ros//:defs.bzl", "ros_interface")
-
-package(default_visibility = ["//visibility:public"])
-
-ros_interface(
-    name = "SetCameraInfo",
-    src = "SetCameraInfo.srv",
-    deps = [
-        "//msg:CameraInfo",
-        # Services have implicit deps
-        "@service_msgs//msg:ServiceEventInfo",
-    ],
+# Package information
+        
+module(
+    name = "trajectory_msgs",
+    version = "5.8.1",
+    compatibility_level = 1,
 )
+
+# Dependencies
+
+bazel_dep(name = "ros", version = "0.0.0")
+
+bazel_dep(name = "builtin_interfaces", version = "2.4.1")
+bazel_dep(name = "geometry_msgs", version = "5.8.1")
+bazel_dep(name = "std_msgs", version = "5.8.1")

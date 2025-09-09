@@ -24,3 +24,4 @@ module(
 # Dependencies
 
 bazel_dep(name = "ros", version = "0.0.0")
+bazel_dep(name = "service_msgs", version = "0.0.0")

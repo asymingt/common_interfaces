@@ -12,18 +12,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Imports
-
 load("@ros//:defs.bzl", "ros_interface")
 
 package(default_visibility = ["//visibility:public"])
 
 ros_interface(
-    name = "SetCameraInfo",
-    src = "SetCameraInfo.srv",
+    name = "DiagnosticArray",
+    src = "DiagnosticArray.msg",
     deps = [
-        "//msg:CameraInfo",
-        # Services have implicit deps
-        "@service_msgs//msg:ServiceEventInfo",
+        "@std_msgs//msg:Header",
+        ":DiagnosticStatus",
     ],
+)
+
+ros_interface(
+    name = "DiagnosticStatus",
+    src = "DiagnosticStatus.msg",
+    deps = [
+        ":KeyValue",
+    ],
+)
+
+ros_interface(
+    name = "KeyValue",
+    src = "KeyValue.msg",
 )

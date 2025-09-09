@@ -12,17 +12,47 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Imports
-
 load("@ros//:defs.bzl", "ros_interface")
 
 package(default_visibility = ["//visibility:public"])
 
 ros_interface(
-    name = "SetCameraInfo",
-    src = "SetCameraInfo.srv",
+    name = "srv__GetMap",
+    src = "GetMap.srv",
     deps = [
-        "//msg:CameraInfo",
+        "//msg:OccupancyGrid",
+        # Services have implicit deps
+        "@service_msgs//msg:ServiceEventInfo",
+    ],
+)
+
+ros_interface(
+    name = "srv__GetPlan",
+    src = "GetPlan.srv",
+    deps = [
+        "@geometry_msgs//msg:PoseStamped",
+        "//msg:Path",
+        # Services have implicit deps
+        "@service_msgs//msg:ServiceEventInfo",
+    ],
+)
+
+ros_interface(
+    name = "srv__LoadMap",
+    src = "LoadMap.srv",
+    deps = [
+        "@nav_msgs//msg:OccupancyGrid",
+        # Services have implicit deps
+        "@service_msgs//msg:ServiceEventInfo",
+    ],
+)
+
+ros_interface(
+    name = "srv__SetMap",
+    src = "SetMap.srv",
+    deps = [
+        "@geometry_msgs//msg:PoseWithCovarianceStamped",
+        "@nav_msgs//msg:OccupancyGrid",
         # Services have implicit deps
         "@service_msgs//msg:ServiceEventInfo",
     ],

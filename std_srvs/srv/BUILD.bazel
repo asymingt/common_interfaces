@@ -23,14 +23,26 @@ package(default_visibility = ["//visibility:public"])
 ros_interface(
     name = "Empty",
     src = "Empty.srv",
+    deps = [
+        # Services have implicit deps
+        "@service_msgs//msg:ServiceEventInfo",
+    ]
 )
 
 ros_interface(
     name = "SetBool",
     src = "SetBool.srv",
+    deps = [
+        # Services have implicit deps
+        "@service_msgs//msg:ServiceEventInfo",
+    ]
 )
 
 ros_interface(
     name = "Trigger",
     src = "Trigger.srv",
+    deps = [
+        # Services have implicit deps
+        "@service_msgs//msg:ServiceEventInfo",
+    ]
 )

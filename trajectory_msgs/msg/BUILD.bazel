@@ -12,18 +12,42 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Imports
-
 load("@ros//:defs.bzl", "ros_interface")
 
 package(default_visibility = ["//visibility:public"])
 
 ros_interface(
-    name = "SetCameraInfo",
-    src = "SetCameraInfo.srv",
+    name = "JointTrajectory",
+    src = "JointTrajectory.msg",
     deps = [
-        "//msg:CameraInfo",
-        # Services have implicit deps
-        "@service_msgs//msg:ServiceEventInfo",
+        ":JointTrajectoryPoint",
+        "@std_msgs//msg:Header",
+    ],
+)
+
+ros_interface(
+    name = "JointTrajectoryPoint",
+    src = "JointTrajectoryPoint.msg",
+    deps = [
+        "@builtin_interfaces//msg:Duration",
+    ],
+)
+
+ros_interface(
+    name = "MultiDOFJointTrajectory",
+    src = "MultiDOFJointTrajectory.msg",
+    deps = [
+        ":MultiDOFJointTrajectoryPoint",
+        "@std_msgs//msg:Header",
+    ],
+)
+
+ros_interface(
+    name = "MultiDOFJointTrajectoryPoint",
+    src = "MultiDOFJointTrajectoryPoint.msg",
+    deps = [
+        "@builtin_interfaces//msg:Duration",
+        "@geometry_msgs//msg:Transform",
+        "@geometry_msgs//msg:Twist",
     ],
 )

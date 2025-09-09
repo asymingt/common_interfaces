@@ -12,17 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Imports
-
-load("@ros//:defs.bzl", "ros_interface")
+load("@ros//:defs.bzl", "ros_interface", "ros_package")
 
 package(default_visibility = ["//visibility:public"])
 
 ros_interface(
-    name = "SetCameraInfo",
-    src = "SetCameraInfo.srv",
+    name = "GetInteractiveMarkers",
+    src = "GetInteractiveMarkers.srv",
     deps = [
-        "//msg:CameraInfo",
+        "//msg:InteractiveMarker",
         # Services have implicit deps
         "@service_msgs//msg:ServiceEventInfo",
     ],
