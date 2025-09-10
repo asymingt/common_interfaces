@@ -15,12 +15,7 @@
 # Package information
         
 module(
-    name = "std_msgs",
+    name = "sensor_msgs_py",
     version = "5.8.1",
     compatibility_level = 0,
 )
-
-# Dependencies
-
-bazel_dep(name = "builtin_interfaces", version = "2.4.1")
-bazel_dep(name = "ros", version = "0.0.1")
