@@ -24,5 +24,5 @@ module(
 
 bazel_dep(name = "builtin_interfaces", version = "2.4.1")
 bazel_dep(name = "geometry_msgs", version = "5.8.1")
-bazel_dep(name = "ros", version = "0.0.1")
+bazel_dep(name = "rosidl_cmake", version = "5.0.0")
 bazel_dep(name = "std_msgs", version = "5.8.1")
